@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4CC2E87-FC76-4911-9219-873F616C075E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SQLMARKET_V2</RootNamespace>
+    <AssemblyName>SQLMARKET_V2</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2">
+      <HintPath>bin\Debug\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APMenu\Menus\Kasiyer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APMenu\Menus\Kasiyer.Designer.cs">
+      <DependentUpon>Kasiyer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APMenu\Menus\Kategori_Marka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APMenu\Menus\Kategori_Marka.Designer.cs">
+      <DependentUpon>Kategori_Marka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APMenu\Menus\StokKontrol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APMenu\Menus\StokKontrol.Designer.cs">
+      <DependentUpon>StokKontrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APMenu\Menus\Urun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APMenu\Menus\Urun.Designer.cs">
+      <DependentUpon>Urun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APMenu\Menus\YetkiliDüzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APMenu\Menus\YetkiliDüzenle.Designer.cs">
+      <DependentUpon>YetkiliDüzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APMenu\YetkiliGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APMenu\YetkiliGiris.Designer.cs">
+      <DependentUpon>YetkiliGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APMenu\YetkiliMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APMenu\YetkiliMenu.Designer.cs">
+      <DependentUpon>YetkiliMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\ConnectionStr.cs" />
+    <Compile Include="Giris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Giris.Designer.cs">
+      <DependentUpon>Giris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PMenu\PersonelGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PMenu\PersonelGiris.Designer.cs">
+      <DependentUpon>PersonelGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PMenu\PersonelMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PMenu\PersonelMenu.Designer.cs">
+      <DependentUpon>PersonelMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="APMenu\Menus\Kasiyer.resx">
+      <DependentUpon>Kasiyer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APMenu\Menus\Kategori_Marka.resx">
+      <DependentUpon>Kategori_Marka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APMenu\Menus\StokKontrol.resx">
+      <DependentUpon>StokKontrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APMenu\Menus\Urun.resx">
+      <DependentUpon>Urun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APMenu\Menus\YetkiliDüzenle.resx">
+      <DependentUpon>YetkiliDüzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APMenu\YetkiliGiris.resx">
+      <DependentUpon>YetkiliGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APMenu\YetkiliMenu.resx">
+      <DependentUpon>YetkiliMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Giris.resx">
+      <DependentUpon>Giris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PMenu\PersonelGiris.resx">
+      <DependentUpon>PersonelGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PMenu\PersonelMenu.resx">
+      <DependentUpon>PersonelMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
