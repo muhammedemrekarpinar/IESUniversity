@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ShelteredV1.Models.AdminOrderModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<div class="CtgryList" >
+	<h2>Siparişler</h2>
+	
+	<table class="table" cellspacing="0" cellpadding="0">
+		<thead>
+		<tr>
+			<th>Id</th>
+			<th>Sipariş Numarası</th>
+			<th>Sipariş Tarihi</th>
+			<th>Sipariş Durumu</th>
+			<th>Tutar</th>
+			<th>Ürün Sayısı</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Id</td>
+				<td>@item.OrderNumber</td>
+				<td>@item.OrderTime</td>
+				<td>@item.OrderState</td>
+				<td>@item.Total</td>
+				<td>@item.Count</td>
+				<td>
+					@Html.ActionLink("Detaylar", "Details", new { id = @item.Id }, new { @class = "dlt-btn" })
+				</td>
+			</tr>
+		}
+		</tbody>
+	</table>
+</div>
+

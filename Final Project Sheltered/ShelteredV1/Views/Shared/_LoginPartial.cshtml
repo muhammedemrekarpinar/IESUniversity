@@ -1,0 +1,23 @@
+﻿
+
+	@if (Request.IsAuthenticated)
+	{
+		//Logout
+		<li class="rghli">
+			<a href="/Account">@User.Identity.Name</a>
+		</li>
+		<li class="rghli">
+			<a href="/Account/Logout">Çıkış Yap</a>
+		</li>
+		
+	}
+	else
+	{
+		//Login ve Register
+		<li class="rghli">
+			<a href="/Account/Login">Giriş Yap</a>
+		</li>
+		<li class="rghli">
+			<a href="/Account/Register">Kayıt Ol</a>
+		</li>
+	}

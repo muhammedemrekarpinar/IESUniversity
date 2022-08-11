@@ -1,0 +1,70 @@
+﻿@model ShelteredV1.Models.Cart
+@{
+    ViewBag.Title = "Index";
+}
+<div class="CtgryList">
+	<h2>Ürün Sepeti</h2>
+	
+	@if (Model.CartLines.Count > 0)
+	{
+		<table width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 2%;">
+			<thead>
+			<tr>
+				<th></th>
+				<th>Miktar</th>
+				<th>Ürün Adı</th>
+				<th>Fiyat</th>
+				<th>Tutar</th>
+				<th></th>
+			</tr>
+			</thead>
+			<tbody>
+			@foreach (var item in Model.CartLines)
+			{
+				<tr>
+					<td><img src="/IMG/@item.Product.Image" width="45" height="45"/></td>
+					<td>
+						@item.Quantity
+					</td>
+					<td>
+						@item.Product.Name
+					</td>
+					<td>
+						@item.Product.Price
+					</td>
+					<td>
+						@((item.Product.Price * item.Quantity).ToString("c"))
+					</td>
+					<td>
+						@using (Html.BeginForm("RemoveFromCart", "Cart"))
+						{
+							@Html.Hidden("Id", item.Product.Id)
+							<button type="submit" class="dlt-btn">
+								Sil
+							</button>
+						}
+					</td>
+				</tr>
+			}
+			</tbody>
+			<tfoot>
+			<td colspan="5">
+				
+			</td>
+			<td>
+				@Model.Total().ToString("c")
+			</td>
+			</tfoot>
+		</table>
+		<div class="scpdiv">
+			<a href="/Home/Product" class="scp-btnC" style="margin: 2%">Alışverişe Devam Et</a>
+			<a href="/Cart/Checkout" class="scp-btnB" style="margin: 2%">Alışverişi Tamamla</a>
+		</div>
+	}
+	else
+	{
+		<div class="TDngr">
+			Alışveriş Sepetinizde Ürün Bulunmamaktadır.
+		</div>
+	}
+</div>

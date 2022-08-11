@@ -1,0 +1,13 @@
+﻿@using ShelteredV1.Models;
+@model IEnumerable<ProductModel>
+@{
+	ViewBag.Title = "Product";
+}
+
+<div class="content-prdct">
+
+	@Html.Partial("_ProductList", Model)
+
+</div>
+
+

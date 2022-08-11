@@ -1,0 +1,48 @@
+﻿@using ShelteredV1.Entity;
+@model Product
+@{
+	ViewBag.Title = "Details";
+}
+<style>
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;}
+
+	input[type=number] {
+		-moz-appearance: textfield;
+</style>
+<!------Products-Details-------->
+<div class="flex-box">
+	<div class="left">
+		<div class="productimg">
+			<img src="~/IMG/@Model.Image" id="productimg">
+		</div>
+		@*<div class="simages">
+			<div class="smallimg"><img src="~/IMG/test2.jpg" class="small-img"></div>
+			<div class="smallimg"><img src="~/IMG/test3.jpg" class="small-img"></div>
+			<div class="smallimg"><img src="~/IMG/test4.jpg" class="small-img"></div>
+		</div>*@
+	</div>
+	<div class="right">
+		<div class="url"><a href="/Home">Ana Sayfa</a> > <a href="/Home/Product">Ürünler</a> > @Model.Name</div>
+		<div class="pname">@Model.Name</div>
+		<div class="details">@Model.Description</div>
+		<div class="price">@Model.Price ₺</div>
+		<div class="btn-box">
+			
+			@using (Html.BeginForm("AddToCart","Cart"))
+			{
+				@Html.HiddenFor(i=>i.Id)
+				<button type="submit" class="cart-btn">
+				Sepete Ekle </button>
+			}
+			@using (Html.BeginForm("BuyToCart", "Cart"))
+			{
+				@Html.HiddenFor(i=>i.Id)
+				<button class="buy-btn">Satın Al</button>
+			}
+		</div>
+	</div>
+</div>
+

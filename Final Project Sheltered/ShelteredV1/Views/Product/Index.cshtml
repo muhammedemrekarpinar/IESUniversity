@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ShelteredV1.Entity.Product>
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<div class="CtgryList" >
+	<h2>Ürün Listesi</h2>
+
+	<p>
+		@Html.ActionLink("Yeni Ürün Ekle", "Create")
+	</p>
+	<table class="table" cellspacing="0" cellpadding="0">
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Category.Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Name)
+			</th>
+			
+			<th>
+				@Html.DisplayNameFor(model => model.Price)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Stock)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Image)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.IsHome)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.IsApproved)
+			</th>
+			<th></th>
+		</tr>
+
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Category.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Name)
+				</td>
+				
+				<td>
+					@Html.DisplayFor(modelItem => item.Price)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Stock)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Image)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.IsHome)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.IsApproved)
+				</td>
+				<td>
+					@Html.ActionLink("Düzenle", "Edit", new { id = item.Id }) |
+					@Html.ActionLink("Sil", "Delete", new { id = item.Id })
+				</td>
+			</tr>
+		}
+
+	</table>
+	</div>

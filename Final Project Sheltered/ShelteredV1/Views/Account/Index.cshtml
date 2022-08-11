@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ShelteredV1.Models.UserOrderModel>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="CtgryList">
+	<h2>Sipariş Bilgileriniz</h2>
+
+	<table width="100%" class="table" cellspacing="0" cellpadding="0">
+		<thead>
+			<tr>
+				<th>Sipariş Numarası</th>
+				<th>Sipariş Tarihi</th>
+				<th>Toplam</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.OrderNumber</td>
+					<td>@item.OrderTime</td>
+					<td>@item.Total</td>
+					<td>@item.OrderState</td>
+					<td>@Html.ActionLink("Detaylar","Details",new {id=@item.Id},new {@class="dlt-btn"})</td>
+				</tr>
+			}
+
+		</tbody>
+	</table>
+</div>

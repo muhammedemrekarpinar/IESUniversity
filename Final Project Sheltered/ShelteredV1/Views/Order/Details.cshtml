@@ -1,0 +1,89 @@
+﻿@model ShelteredV1.Models.OrderDetailsModel
+@{
+	ViewBag.Title = "Details";
+	Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+<h2 style="color: white">Sipariş Detay Bilgileri</h2>
+
+<dl class="row" style="color: white">
+
+	<dt class="col-sm-3">Sipariş Durumu</dt>
+	<dd class="col-sm-9">
+		@using (Html.BeginForm("UpdateOrderState","Order",FormMethod.Post))
+		{
+			@Html.HiddenFor(i=>i.OrderId)
+		<div class="col-md-9">
+			@Html.EnumDropDownListFor(i => i.OrderState, "Durum Seçiniz", new { @class = "TLBox" })
+			<button type="submit" class="crt-btn">Güncelle</button>
+			@if (TempData["message"] != null)
+			{
+				<p>@TempData["message"]</p>
+			}
+		</div>
+		}
+	</dd>
+
+	<dt class="col-sm-3">Sipariş ID</dt>
+	<dd class="col-sm-9">@Model.OrderId</dd>
+
+	<dt class="col-sm-3">Sipariş Numarası</dt>
+	<dd class="col-sm-9">@Model.OrderNumber</dd>
+
+	<dt class="col-sm-3">Sipariş Tutarı</dt>
+	<dd class="col-sm-9">@Model.Total ₺</dd>
+
+	<dt class="col-sm-3">Sipariş Tarihi</dt>
+	<dd class="col-sm-9">@Model.OrderTime</dd>
+
+	<dt class="col-sm-3">Adres</dt>
+	<dd class="col-sm-9">
+		@Model.AdresBasligi
+		<hr />
+		<br />
+		@Model.Adres
+		<br />
+		@Model.Sehir - @Model.Semt - @Model.Mahalle
+		<br />
+		@Model.PostaKodu
+	</dd>
+
+	<dt class="col-sm-3">Ürünler</dt>
+	<dd class="col-sm-9">
+
+		<div class="CtgryList">
+			<table width="100%" class="table" cellspacing="0" cellpadding="0">
+
+				<thead>
+					<tr>
+						<th>Ürün Resmi</th>
+						<th>Ürün Adı</th>
+						<th>Ürün Miktarı</th>
+						<th>Ürün Fiyatı</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model.OrderLines)
+					{
+						<tr>
+							<td><img src="/IMG/@item.Image" width="50px" height="50px" /></td>
+							<td>@item.ProductName</td>
+							<td>@item.Quantity</td>
+							<td>@item.Price </td>
+							<td><a href="/Home/Details/@item.ProductId" class="dlt-btn" target="_blank">Ürün Detayları</a></td>
+
+						</tr>
+					}
+				</tbody>
+
+			</table>
+		</div>
+	</dd>
+
+</dl>
+@*<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>*@

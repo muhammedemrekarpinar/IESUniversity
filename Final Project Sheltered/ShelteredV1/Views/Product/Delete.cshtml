@@ -1,0 +1,84 @@
+﻿@model ShelteredV1.Entity.Product
+
+@{
+	ViewBag.Title = "Delete";
+	Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<div class="CtgryAdd">
+	<h2>Ürün Silme</h2>
+
+	<h3>Ürünü silmek istediğinize emin misiniz?</h3>
+	<div>
+
+		<dl class="dl-horizontal">
+			
+
+			<dt class="TBLabel">
+				@Html.DisplayNameFor(model => model.Name)
+			</dt>
+
+			<dd class="TBLabel2">
+				@Html.DisplayFor(model => model.Name)
+			</dd>
+
+			<dt class="TBLabel">
+				@Html.DisplayNameFor(model => model.Description)
+			</dt>
+
+			<dd class="TBLabel2">
+				@Html.DisplayFor(model => model.Description)
+			</dd>
+
+			<dt class="TBLabel">
+				@Html.DisplayNameFor(model => model.Price)
+			</dt>
+
+			<dd class="TBLabel2">
+				@Html.DisplayFor(model => model.Price)
+			</dd>
+
+			<dt class="TBLabel">
+				@Html.DisplayNameFor(model => model.Stock)
+			</dt>
+
+			<dd class="TBLabel2">
+				@Html.DisplayFor(model => model.Stock)
+			</dd>
+
+			<dt class="TBLabel">
+				@Html.DisplayNameFor(model => model.Image)
+			</dt>
+
+			<dd class="TBLabel2">
+				@Html.DisplayFor(model => model.Image)
+			</dd>
+
+			<dt class="TBLabel">
+				@Html.DisplayNameFor(model => model.IsHome)
+			</dt>
+
+			<dd class="TBLabel2">
+				@Html.DisplayFor(model => model.IsHome)
+			</dd>
+
+			<dt class="TBLabel">
+				@Html.DisplayNameFor(model => model.IsApproved)
+			</dt>
+
+			<dd class="TBLabel2">
+				@Html.DisplayFor(model => model.IsApproved)
+			</dd>
+
+		</dl>
+
+		@using (Html.BeginForm())
+		{
+			@Html.AntiForgeryToken()
+
+			<div class="form-actions no-color">
+				<input type="submit" value="Sil" class="crt-btn" /> 
+				@Html.ActionLink("Ürün Liste", "Index", null, new { @class = "crt-btn" })
+			</div>
+		}
+	</div>
+</div>

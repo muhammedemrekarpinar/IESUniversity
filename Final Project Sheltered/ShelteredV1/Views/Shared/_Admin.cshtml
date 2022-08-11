@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="~/STYLE/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<title>Admin Panel</title>
+</head>
+<body>
+	<div class="headerv">
+
+		<div class="navbar-top">
+			<img class="navbar-logo" src="~/IMG/emrelogo.png">
+		</div>
+		<nav id="navbar">
+			<ul id="menu">
+				<li>
+					<a href="~/Admin">Kullanıcılar</a>
+				</li>
+				<li>
+					<a href="~/Category">Kategoriler</a>
+				</li>
+				<li>
+					<a href="~/Product">Ürünler</a>
+				</li>
+				<li>
+					<a href="~/Order">Siparişler</a>
+				</li>
+				<li>
+					<a href="~/Home" target="_blank">Ana Sayfa</a>
+				</li>
+				@Html.Partial("_LoginPartial")
+			</ul>
+		</nav>
+	</div>
+	<div class="center">
+		
+		@RenderBody()
+		
+	</div>
+	<div class="footer">
+		
+		<script src="~/STYLE/style.js"></script>
+		
+	</div>
+
+
+</body>
+</html>

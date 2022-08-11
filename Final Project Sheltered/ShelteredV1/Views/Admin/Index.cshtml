@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ShelteredV1.Identity.ApplicationUser>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+
+<div class="CtgryList">
+	<h2>Kullanıcı Bilgileri</h2>
+	
+	<table class="table" cellspacing="0" cellpadding="0">
+		<tr>
+			<th>Id</th>
+			<th>Ad Soyad</th>
+			<th>Kullanıcı Adı</th>
+			<th>E Posta</th>
+		</tr>
+		
+		@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.Id</td>
+					<td>@item.Name @item.Surname</td>
+					<td>@item.UserName</td>
+					<td>@item.Email</td>
+				</tr>
+			}
+			
+		
+	</table>
+
+</div>

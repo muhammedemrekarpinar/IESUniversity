@@ -1,0 +1,75 @@
+﻿@model ShelteredV1.Models.OrderDetailsModel
+@{
+	ViewBag.Title = "Details";
+}
+
+
+
+
+
+
+
+<h2 style="color: white">Sipariş Detay Bilgileri</h2>
+<dl class="row" style="color: white">
+
+	<dt class="col-sm-3">Sipariş Durumu</dt>
+	<dd class="col-sm-9">@Model.OrderState</dd>
+
+	<dt class="col-sm-3">Sipariş ID</dt>
+	<dd class="col-sm-9">@Model.OrderId</dd>
+
+	<dt class="col-sm-3">Sipariş Numarası</dt>
+	<dd class="col-sm-9">@Model.OrderNumber</dd>
+
+	<dt class="col-sm-3">Sipariş Tutarı</dt>
+	<dd class="col-sm-9">@Model.Total ₺</dd>
+
+	<dt class="col-sm-3">Sipariş Tarihi</dt>
+	<dd class="col-sm-9">@Model.OrderTime</dd>
+
+	<dt class="col-sm-3">Adres</dt>
+	<dd class="col-sm-9">
+		@Model.AdresBasligi
+		<hr />
+		<br/>
+		@Model.Adres
+		<br />
+		@Model.Sehir - @Model.Semt - @Model.Mahalle
+		<br />
+		@Model.PostaKodu
+	</dd>
+
+	<dt class="col-sm-3">Ürünler</dt>
+	<dd class="col-sm-9">
+
+		<div class="CtgryList">
+			<table width="100%" class="table" cellspacing="0" cellpadding="0">
+
+				<thead>
+					<tr>
+						<th>Ürün Resmi</th>
+						<th>Ürün Adı</th>
+						<th>Ürün Miktarı</th>
+						<th>Ürün Fiyatı</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model.OrderLines)
+					{
+						<tr>
+							<td><img src="/IMG/@item.Image" width="50px" height="50px" /></td>
+							<td>@item.ProductName</td>
+							<td>@item.Quantity</td>
+							<td>@item.Price </td>
+							<td><a href="/Home/Details/@item.ProductId" class="dlt-btn" target="_blank">Ürün Detayları</a></td>
+
+						</tr>
+					}
+				</tbody>
+
+			</table>
+		</div>
+	</dd>
+
+</dl>

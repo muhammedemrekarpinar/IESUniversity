@@ -1,0 +1,25 @@
+﻿@using ShelteredV1.Models;
+@model IEnumerable<ProductModel>
+@{
+	ViewBag.Title = "Product";
+}
+
+<!------Products-------->
+<div class="content-prdct">
+	@foreach (var urun in Model)
+	{
+		<div class="product">
+			<a href="~/Home/Details/@urun.Id">
+				<img src="~/IMG/@urun.Image">
+				<p>@urun.Description</p>
+				<h3>@urun.Name</h3>
+				<h6>@urun.Price ₺</h6>
+				<button class="buy">Satıl Al</button>
+			</a>
+			
+
+		</div>
+	}
+
+
+</div>
